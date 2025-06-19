@@ -1,0 +1,12 @@
+{
+  "name": "cicero-app-glitch",
+  "version": "1.0.0",
+  "description": "App do Cicero rodando no Glitch",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

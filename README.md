@@ -1,11 +1,98 @@
-# Cicero App no Glitch
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel de Monitoramento - PZEM-004T</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+    }
 
-Este é um projeto simples de Node.js com Express, pronto para ser usado no [Glitch](https://glitch.com) ou localmente.
+    header {
+      background-color: #1f1f1f;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00ffe7;
+    }
 
-## Como usar
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
 
-1. Suba para seu GitHub.
-2. No Glitch, clique em "Import from GitHub".
-3. Teste em: `https://seu-projeto.glitch.me`
+    .card {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      text-align: center;
+    }
 
-🚀 Feito por Cicero Eletrônica.
+    .label {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 0.5rem;
+    }
+
+    .value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #00ffe7;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Monitoramento de Energia - PZEM-004T
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <div class="label">Tensão</div>
+      <div class="value" id="voltage">-- V</div>
+    </div>
+    <div class="card">
+      <div class="label">Corrente</div>
+      <div class="value" id="current">-- A</div>
+    </div>
+    <div class="card">
+      <div class="label">Potência</div>
+      <div class="value" id="power">-- W</div>
+    </div>
+    <div class="card">
+      <div class="label">Energia</div>
+      <div class="value" id="energy">-- kWh</div>
+    </div>
+    <div class="card">
+      <div class="label">Frequência</div>
+      <div class="value" id="frequency">-- Hz</div>
+    </div>
+    <div class="card">
+      <div class="label">Fator de Potência</div>
+      <div class="value" id="pf">--</div>
+    </div>
+  </div>
+
+  <script>
+    // Simulador (para teste)
+    setInterval(() => {
+      document.getElementById('voltage').innerText = (220 + Math.random() * 5).toFixed(1) + " V";
+      document.getElementById('current').innerText = (5 + Math.random()).toFixed(2) + " A";
+      document.getElementById('power').innerText = (1100 + Math.random() * 50).toFixed(1) + " W";
+      document.getElementById('energy').innerText = (12.3 + Math.random()).toFixed(2) + " kWh";
+      document.getElementById('frequency').innerText = (59.9 + Math.random()).toFixed(2) + " Hz";
+      document.getElementById('pf').innerText = (0.95 + Math.random() * 0.05).toFixed(2);
+    }, 2000);
+  </script>
+
+</body>
+</html>
